@@ -40,10 +40,22 @@ class Login extends Component
             ]);
         }
 
+        // Récupérer l'utilisateur authentifié
+    $user = Auth::user();
+
+    // Vérifier si l'utilisateur est actif
+    if (!$user->is_active) {
+        Auth::logout(); // Déconnecter l'utilisateur
+
+        throw ValidationException::withMessages([
+            'email' => __('Votre compte n\'est pas actif. Veuillez contacter l\'administrateur.'),
+        ]);
+    }
+
         RateLimiter::clear($this->throttleKey());
         Session::regenerate();
 
-        $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+        $this->redirectIntended(default: route('home', absolute: false), navigate: true);
     }
 
     /**
