@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,13 +10,21 @@ class Order extends Model
 
     protected $fillable = ['user_id', 'total_amount', 'status'];
 
+    // Relation avec l'utilisateur
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
+    // Relation avec les articles de la commande
     public function items()
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+    // Relation avec les paiements
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
     }
 }
