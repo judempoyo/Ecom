@@ -76,4 +76,4 @@ class StockSheetExporter extends Exporter
 
         return $body;
     }
-}ta
+}
