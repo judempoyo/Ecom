@@ -25,4 +25,34 @@ class Product extends Model
     {
         return $this->hasMany(ProductImage::class);
     }
+
+    public function inventories()
+    {
+        return $this->hasMany(Inventory::class);
+    }
+
+    public function addStock($quantity, $notes = null)
+    {
+        $this->inventories()->create([
+            'quantity' => $quantity,
+            'movement_type' => 'in',
+            'notes' => $notes,
+        ]);
+
+        $this->stock += $quantity;
+        $this->save();
+    }
+
+    public function removeStock($quantity, $notes = null)
+    {
+        $this->inventories()->create([
+            'quantity' => $quantity,
+            'movement_type' => 'out',
+            'notes' => $notes,
+        ]);
+
+        $this->stock -= $quantity;
+        $this->save();
+    }
+
 }
