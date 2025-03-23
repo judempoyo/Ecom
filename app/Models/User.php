@@ -22,6 +22,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'image',
+        'is_active',
     ];
 
     /**
@@ -44,8 +46,27 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_active' => 'boolean',
         ];
     }
+
+     // Relation avec les commandes (Orders)
+     public function orders()
+     {
+         return $this->hasMany(Order::class);
+     }
+ 
+     // Relation avec les avis (Reviews)
+     public function reviews()
+     {
+         return $this->hasMany(Review::class);
+     }
+ 
+     // Relation avec les paiements (Payments) via les commandes
+     public function payments()
+     {
+         return $this->hasManyThrough(Payment::class, Order::class);
+     }
 
     /**
      * Get the user's initials
