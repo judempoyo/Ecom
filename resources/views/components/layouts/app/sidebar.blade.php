@@ -18,7 +18,7 @@
             </flux:navlist>
 
             <flux:spacer />
-
+{{--  
             <flux:navlist variant="outline">
                 <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
                 {{ __('Repository') }}
@@ -28,15 +28,16 @@
                 {{ __('Documentation') }}
                 </flux:navlist.item>
             </flux:navlist>
-
+  --}}
             <!-- Desktop User Menu -->
             <flux:dropdown position="bottom" align="start">
-                <flux:profile
+              {{--    <flux:profile
                     :name="auth()->user()->name"
                     :initials="auth()->user()->initials()"
                     icon-trailing="chevrons-up-down"
-                />
+                />  --}}
 
+                <flux:profile circle class="rounded-full"  :name="auth()->user()->name" avatar="{{ asset('storage/' . auth()->user()->profile_photo) }}"  />
                 <flux:menu class="w-[220px]">
                     <flux:menu.radio.group>
                         <div class="p-0 text-sm font-normal">
@@ -82,11 +83,12 @@
             <flux:spacer />
 
             <flux:dropdown position="top" align="end">
-                <flux:profile
+                {{--  <flux:profile
                     :initials="auth()->user()->initials()"
                     icon-trailing="chevron-down"
-                />
+                />  --}}
 
+                <flux:profile circle class="rounded-full"  avatar="{{ asset('storage/' . auth()->user()->profile_photo) }}"  />
                 <flux:menu>
                     <flux:menu.radio.group>
                         <div class="p-0 text-sm font-normal">
