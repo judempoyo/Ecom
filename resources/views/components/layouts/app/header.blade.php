@@ -36,9 +36,7 @@
                 <flux:button circle x-data x-on:click="$flux.dark = ! $flux.dark" icon="moon" variant="subtle" aria-label="Toggle dark mode" />
             </flux:tooltip>
 
-            <!-- Panier d'achat -->
-            <flux:button as="a" icon="shopping-cart"  href="{{ route('products.index') }}" class="mx-4 relative" wire:navigate circle variant="ghost">
-                <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-500 rounded-full">3</span></flux:button>
+          @livewire('cart')
 
 
             <!-- Menu utilisateur -->
