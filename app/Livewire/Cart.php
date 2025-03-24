@@ -25,7 +25,7 @@ class Cart extends Component
     }
 
     #[On('add-to-cart')]
-public function addToCart($productId)
+public function addToCart($productId, $quantity = 1)
 {
     $product = Product::findOrFail($productId);
     
@@ -36,7 +36,7 @@ public function addToCart($productId)
     } else {
         $cart[$productId] = [
             "name" => $product->name,
-            "quantity" => 1,
+            "quantity" => $quantity,
             "price" => $product->price,
             "image" => $product->image,
             "product_id" => $product->id
