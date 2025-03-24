@@ -82,9 +82,49 @@
         </div>
 
         @if ($products->isEmpty())
-            <div class="text-center py-12">
-                <p class="text-gray-500 text-lg">Aucun produit trouvé.</p>
+        <div class="text-center py-16 px-4 max-w-sm mx-auto">
+            <!-- Icône illustrative -->
+            <div class="mx-auto mb-6 text-gray-400 dark:text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                </svg>
             </div>
+            
+            <!-- Message principal -->
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">
+                Oups, rien ici...
+            </h3>
+            
+            <!-- Message secondaire -->
+            <p class="text-gray-500 dark:text-gray-400 mb-6">
+                @if($search || $category)
+                    Aucun produit ne correspond à vos filtres actuels.
+                @else
+                    Notre catalogue semble vide pour le moment.
+                @endif
+            </p>
+            
+            <!-- Bouton d'action -->
+            <div class="flex justify-center gap-3">
+                @if($search || $category)
+                    <button wire:click="$set('search', '')" 
+                            wire:click="$set('category', '')"
+                            class="px-5 py-2.5 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                        Réinitialiser
+                    </button>
+                @endif
+                <a href="{{ route('products.index') }}" 
+                   class="px-5 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors flex items-center gap-2 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    Voir le catalogue
+                </a>
+            </div>
+        </div>
         @else
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"

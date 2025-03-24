@@ -31,8 +31,8 @@
                             
                             <div class="ml-4 flex-1">
                                 <div class="flex justify-between">
-                                    <h3 class="text-sm font-medium text-gray-900">{{ $item['name'] }}</h3>
-                                    <p class="ml-4 text-sm font-medium text-gray-900">
+                                    <h3 class="text-sm font-medium ">{{ $item['name'] }}</h3>
+                                    <p class="ml-4 text-sm font-medium ">
                                         {{ number_format($item['price'] * $item['quantity'], 2) }} €
                                     </p>
                                 </div>
@@ -40,10 +40,10 @@
                                 <div class="mt-2 flex items-center justify-between">
                                     <div class="flex items-center border rounded">
                                         <button wire:click="updateQuantity('{{ $id }}', {{ $item['quantity'] - 1 }})" 
-                                                class="px-2 py-1 text-gray-600 hover:bg-gray-100">-</button>
+                                                class="px-2 py-1 hover:bg-gray-100">-</button>
                                         <span class="px-3 text-sm">{{ $item['quantity'] }}</span>
                                         <button wire:click="updateQuantity('{{ $id }}', {{ $item['quantity'] + 1 }})" 
-                                                class="px-2 py-1 text-gray-600 hover:bg-gray-100">+</button>
+                                                class="px-2 py-1 hover:bg-gray-100">+</button>
                                     </div>
                                     
                                     <button wire:click="removeFromCart('{{ $id }}')" 
@@ -59,7 +59,7 @@
                 </div>
                 
                 <div class="border-t border-gray-200 pt-4">
-                    <div class="flex justify-between text-base font-medium text-gray-900">
+                    <div class="flex justify-between text-base font-medium ">
                         <p>Total</p>
                         <p>{{ number_format(array_sum(array_map(function($item) { return $item['price'] * $item['quantity']; }, $cart)), 2) }} €</p>
                     </div>
@@ -80,7 +80,7 @@
                     <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
-                    <h3 class="mt-2 text-sm font-medium text-gray-900">Panier vide</h3>
+                    <h3 class="mt-2 text-sm font-medium ">Panier vide</h3>
                     <p class="mt-1 text-sm text-gray-500">Commencez par ajouter des produits à votre panier.</p>
                 </div>
             @endif
