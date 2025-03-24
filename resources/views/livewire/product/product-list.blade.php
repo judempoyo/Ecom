@@ -174,25 +174,8 @@
                 @endforeach
             </div>
 
-            <!-- Chargement infini -->
-            <div x-data="{
-                init() {
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting && @this.loaded < @this.totalProducts) {
-                                @this.loadMore();
-                            }
-                        });
-                    }, {
-                        root: null,
-                        threshold: 0.5
-                    });
-                    
-                    observer.observe(this.$el);
-                }
-            }" class="h-10"></div>
-
-            <!-- Indicateur de chargement -->
+            <div x-intersect="$wire.loadMore()" class="h-1"></div>
+            
             <div wire:loading.flex class="justify-center my-8">
                 <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-teal-600"></div>
             </div>
