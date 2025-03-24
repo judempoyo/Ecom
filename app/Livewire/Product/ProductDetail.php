@@ -22,7 +22,9 @@ class ProductDetail extends Component
     public function mount($id) 
     {
         $this->productId = $id;
-        $this->product = Product::with('reviews.user', 'images')->findOrFail($id);
+        $this->product = Product::with(['reviews.user' => function($query) {
+            $query->select('id', 'name', 'profile_photo'); 
+        }, 'images'])->findOrFail($id);
 
         // Vérifie si l'utilisateur a déjà posté un avis
         if (auth()->check()) {

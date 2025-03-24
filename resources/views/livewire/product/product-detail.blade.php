@@ -177,7 +177,13 @@
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
                                         <div class="w-10 h-10 rounded-full bg-gray-300 dark:bg-gray-600 flex items-center justify-center">
-                                            <span class="text-gray-600 dark:text-gray-300">{{ substr($review->user->name, 0, 1) }}</span>
+                                            
+                                            <livewire:user-avatar 
+            :user="$review->user" 
+            :size="'md'"
+            :key="'avatar-'.$review->id"
+        />
+                                            
                                         </div>
                                         <div class="ml-3">
                                             <h4 class="font-medium">{{ $review->user->name }}</h4>
