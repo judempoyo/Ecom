@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Cart;
 
@@ -70,33 +71,46 @@ public $states = [
     }
 
     public function placeOrder()
-    {
-        $this->validate();
+{
+    $this->validate();
 
-        $order = Order::create([
-            'user_id' => Auth::id(),
-            'total_amount' => $this->total,
-            'shipping_cost' => $this->shipping,
-            'status' => 'pending',
-            'payment_method' => $this->paymentMethod,
-            'shipping_address' => implode(', ', $this->address)
-        ]);
-
-        foreach ($this->cartItems as $id => $item) {
-            OrderItem::create([
-                'order_id' => $order->id,
-                'product_id' => $id,
-                'quantity' => $item['quantity'],
-                'price' => $item['price']
-            ]);
+    // Vérifier d'abord que tous les produits sont disponibles
+    foreach ($this->cartItems as $id => $item) {
+        $product = Product::find($id);
+        if (!$product || $product->stock < $item['quantity']) {
+            return back()->with('error', "Le produit {$product->name} n'est plus disponible en quantité suffisante");
         }
-
-
-        session()->forget('cart');
-        $this->dispatch('productAdded');
-        return redirect()->route('order.confirmation', ['order' => $order->id]);
     }
 
+    // Créer la commande
+    $order = Order::create([
+        'user_id' => Auth::id(),
+        'total_amount' => $this->total,
+        'shipping_cost' => $this->shipping,
+        'status' => 'pending',
+        'payment_method' => $this->paymentMethod,
+        'shipping_address' => implode(', ', $this->address)
+    ]);
+
+    // Ajouter les articles et réduire le stock
+    foreach ($this->cartItems as $id => $item) {
+        $product = Product::find($id);
+        
+        OrderItem::create([
+            'order_id' => $order->id,
+            'product_id' => $id,
+            'quantity' => $item['quantity'],
+            'price' => $item['price']
+        ]);
+
+        // Réduire le stock et enregistrer le mouvement d'inventaire
+        $product->removeStock($item['quantity'], "Vente - Commande #{$order->id}");
+    }
+
+    session()->forget('cart');
+    $this->dispatch('productAdded');
+    return redirect()->route('order.confirmation', ['order' => $order->id]);
+}
     public function render()
     {
         return view('livewire.checkout');
