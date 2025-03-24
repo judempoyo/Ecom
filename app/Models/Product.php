@@ -54,5 +54,10 @@ class Product extends Model
         $this->stock -= $quantity;
         $this->save();
     }
+        // Calcul de la note moyenne des avis
+        public function averageRating()
+        {
+            return $this->reviews()->avg('rating'); // Calcule la moyenne de la colonne 'rating'
+        }
 
 }
