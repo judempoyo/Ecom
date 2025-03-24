@@ -10,12 +10,17 @@ class Cart extends Component
 {
     public $cart = [];
     public $showCartModal = false;
+    public $showCheckoutButton = true;
 
     protected $listeners = ['productAdded' => 'updateCart'];
 
     public function mount()
     {
         $this->cart = session()->get('cart', []);
+
+        if (!auth()->check()) {
+            $this->showCheckoutButton = false;
+        }
     }
 
     public function updateCart()

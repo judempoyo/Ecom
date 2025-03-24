@@ -65,14 +65,23 @@
                     </div>
                     
                     <div class="mt-6">
-                        {{--  <a href="{{ route('checkout') }}" 
-                           class="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-teal-600 hover:bg-teal-700">
-                            Passer la commande
-                        </a>  --}}
+                        @if(auth()->check())
+                        <a href="{{ route('checkout') }}" 
+                        class="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-teal-600 hover:bg-teal-700">
+                         Passer la commande
+                     </a>
+        @else
+            <div class="bg-teal-50 text-teal-700 p-3 rounded mb-4">
+                <p>Connectez-vous pour passer commande</p>
+                <a href="{{ route('login') }}" class="font-medium underline">Se connecter</a>
+            </div>
+        @endif
+                        {{--    
                         <a href="{{ route('products.index') }}" 
                            class="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-teal-600 hover:bg-teal-700">
-                            Passer la commande
+                           Passer la commande
                         </a>
+                        --}}
                     </div>
                 </div>
             @else
