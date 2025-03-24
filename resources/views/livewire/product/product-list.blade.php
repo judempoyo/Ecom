@@ -7,7 +7,7 @@
                 <h2 class="text-xl font-bold">{{ $product->name }}</h2>
                 <p class="text-gray-600">{{ $product->description }}</p>
                 <p class="text-lg font-semibold">{{ $product->price }} €</p>
-                <a href="{{ route('product.show', $product->id) }}" class="text-blue-500">Voir les détails</a>
+                <a href="{{ route('products.show', $product->id) }}" class="text-blue-500">Voir les détails</a>
             </div>
         @endforeach
     </div>

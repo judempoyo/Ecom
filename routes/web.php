@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Product\ProductList;
 use App\Livewire\Product\ProductDetail;
 
-Route::get('/products', ProductList::class)->name('product.list');
-Route::get('/product/{id}', ProductDetail::class)->name('product.show');
+Route::get('/products', ProductList::class)->name('products.index');
+Route::get('/product/{id}', ProductDetail::class)->name('products.show');
 
 Route::get('/', function () {
     return view('welcome');
