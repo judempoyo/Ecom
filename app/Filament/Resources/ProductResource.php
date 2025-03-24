@@ -45,7 +45,7 @@ class ProductResource extends Resource
                     ->numeric()
                     ->required(),
                 Forms\Components\FileUpload::make('image')
-                    ->directory('products')
+                ->directory('product-images')
                     ->image(),
                 Forms\Components\Select::make('category_id')
                     ->relationship('category', 'name')
