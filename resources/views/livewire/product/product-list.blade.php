@@ -7,16 +7,16 @@
             <ul class="space-y-2">
                 <li>
                     <button wire:click="$set('category', '')"
-                        class="w-full text-left px-3 py-2 rounded hover:bg-gray-100 transition-colors {{ $category === '' ? 'bg-teal-50 text-teal-600' : 'text-gray-700' }}">
+                        class="w-full text-left px-3 py-2 rounded  transition-colors {{ $category === '' ? 'bg-teal-50 text-teal-600 dark:bg-teal-500 dark:text-black  hover:bg-teal-100 dark:hover:bg-teal-600 ' : 'text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-900' }}">
                         Toutes les catégories
                     </button>
                 </li>
                 @foreach ($categories as $cat)
                     <li>
                         <button wire:click="$set('category', '{{ $cat->id }}')"
-                            class="w-full text-left px-3 py-2 rounded transition-colors flex justify-between items-center {{ $category == $cat->id ? 'bg-teal-50 text-teal-600' : 'text-gray-700 hover:bg-gray-100' }}">
+                            class="w-full text-left px-3 py-2 rounded transition-colors flex justify-between  items-center {{ $category == $cat->id ? 'bg-teal-50 dark:bg-teal-500 dark:text-black  text-teal-600 hover:bg-teal-100 dark:hover:bg-teal-600' : 'text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-900 ' }}">
                             <span>{{ $cat->name }}</span>
-                            <span class="text-xs bg-gray-200 px-2 py-1 rounded-full">
+                            <span class="text-xs bg-gray-200 dark:bg-gray-700 text-teal-600 dark:text-white px-2 py-1 rounded-full">
                                 {{ $cat->products_count }}
                             </span>
                         </button>
