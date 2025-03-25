@@ -10,18 +10,19 @@ use App\Livewire\Product\ProductDetail;
 use App\Models\Order;
 
 
+Route::get('/', ProductList::class)->name('home');
 Route::get('/products', ProductList::class)->name('products.index');
 Route::get('/product/{id}', ProductDetail::class)->name('products.show');
 
 
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+    ->name('dashboard'); */
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
