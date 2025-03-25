@@ -132,7 +132,7 @@ class InventoryResource extends Resource
     }
 
   // Dans InventoryResource.php
-public static function getNavigationItems(): array
+/* public static function getNavigationItems(): array
 {
     return [
         ...parent::getNavigationItems(),
@@ -141,5 +141,5 @@ public static function getNavigationItems(): array
             ->icon('heroicon-o-users')
             ->activeIcon('heroicon-s-users'),
     ];
-}
+} */
 }

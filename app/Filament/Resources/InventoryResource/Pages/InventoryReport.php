@@ -27,7 +27,7 @@ class InventoryReport extends Page  implements Forms\Contracts\HasForms
     public $movement_type;
 
       
-    protected static string $route = 'report'; 
+    //protected static string $routePath = 'report'; 
 
 
     protected function getFormSchema(): array
