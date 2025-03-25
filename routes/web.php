@@ -23,7 +23,10 @@ Route::get('/product/{id}', ProductDetail::class)->name('products.show');
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard'); */
-
+// Dans routes/web.php
+Route::get('/payment/{order}', \App\Livewire\PaymentProcessor::class)
+    ->name('payment.process')
+    ->middleware('auth');
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 

@@ -109,6 +109,11 @@ public $states = [
 
     session()->forget('cart');
     $this->dispatch('productAdded');
+  
+    if ($this->paymentMethod === 'mobile_money') {
+        return redirect()->route('payment.process', ['order' => $order->id]);
+    }
+
     return redirect()->route('order.confirmation', ['order' => $order->id]);
 }
     public function render()
