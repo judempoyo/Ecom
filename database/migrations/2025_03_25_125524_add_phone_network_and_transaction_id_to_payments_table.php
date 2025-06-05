@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
+        Schema::table('payments', function (Blueprint $table) {
+            $table->string('phone_number')->after('status'); 
+            $table->string('network')->after('phone_number');
+            $table->string('transaction_id')->after('network');
         });
     }
 
@@ -21,8 +23,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
+        Schema::table('payments', function (Blueprint $table) {
+            $table->dropColumn('phone_number');
+            $table->dropColumn('network');
+            $table->dropColumn('transaction_id');
         });
+    
     }
 };

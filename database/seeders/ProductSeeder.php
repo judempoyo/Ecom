@@ -1,4 +1,10 @@
-<?php
+ 'name',
+         'adress',
+         'history',
+         'missions_title',
+         'missions',
+         'culture_title',
+         'culture_description',<?php
 
 namespace Database\Seeders;
 

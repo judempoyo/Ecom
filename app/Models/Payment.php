@@ -22,4 +22,10 @@ protected $fillable = [
     {
         return $this->belongsTo(Order::class);
     }
+
+    public function scopePendingTooLong($query)
+{
+    return $query->where('status', 'pending')
+                ->where('created_at', '<', now()->subMinutes(30));
+}
 }

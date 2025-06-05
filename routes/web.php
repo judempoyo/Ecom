@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Product\ProductList;
 use App\Livewire\Product\ProductDetail;
 use App\Models\Order;
-
+use APp\Http\Controllers\PaymentCallbackController;
 
 Route::get('/', ProductList::class)->name('home');
 Route::get('/products', ProductList::class)->name('products.index');
@@ -23,7 +23,10 @@ Route::get('/product/{id}', ProductDetail::class)->name('products.show');
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard'); */
-// Dans routes/web.php
+
+
+Route::post('/payment/flutterwave-callback', [PaymentCallbackController::class, 'handleFlutterwaveCallback'])
+->name('payment.flutterwave.callback');
 Route::get('/payment/{order}', \App\Livewire\PaymentProcessor::class)
     ->name('payment.process')
     ->middleware('auth');
