@@ -72,7 +72,16 @@ class OrderResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                                Tables\Actions\Action::make('invoice')
+                ->label('Facture')
+                ->icon('heroicon-o-document-text')
+                ->color('success')
+                ->url(fn (Order $record): string => OrderResource::getUrl('view', ['record' => $record])),
+
+                Tables\Actions\DeleteAction::make(),
             ])
+
+
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
@@ -94,6 +103,12 @@ class OrderResource extends Resource
             'create' => Pages\CreateOrder::route('/create'),
             'view' => Pages\ViewOrder::route('/{record}'),
             'edit' => Pages\EditOrder::route('/{record}/edit'),
+            'print' => Pages\PrintOrder::route('/{record}/print'),
         ];
     }
+    public static function getRoutes(): array
+{
+    return [
+    ];
+}
 }
