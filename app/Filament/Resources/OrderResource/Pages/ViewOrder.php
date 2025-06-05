@@ -19,12 +19,7 @@ class ViewOrder extends Page
     protected function getActions(): array
     {
         return [
-            \Filament\Actions\Action::make('print')
-                ->label('Imprimer la facture')
-                ->icon('heroicon-o-printer')
-                ->color('primary')
-                ->url(fn () => route('filament.admin.resources.orders.print', $this->record))
-                ->openUrlInNewTab(),
+             
             \Filament\Actions\EditAction::make(),
             //\Filament\Actions\DeleteAction::make(),
         ];

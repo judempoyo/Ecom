@@ -27,6 +27,9 @@
                 <flux:navbar.item icon="shopping-bag" :href="route('products.index')" :current="request()->routeIs('products.index')" wire:navigate>
                     {{ __('Produits') }}
                 </flux:navbar.item>
+                  <flux:navbar.item icon="shopping-bag" :href="route('orders.list')" :current="request()->routeIs('orders.list')" wire:navigate>
+                    {{ __('Mes commandes') }}
+                </flux:navbar.item>
             </flux:navbar>
 
             <flux:spacer />

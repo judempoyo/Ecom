@@ -31,7 +31,7 @@
                 wire:model="profile_photo"
                 type="file"
                 id="profile_photo"
-                class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100"
             >
             @error('profile_photo') <span class="text-sm text-red-500">{{ $message }}</span> @enderror
         </div>
@@ -39,7 +39,7 @@
         <!-- Bouton de mise à jour -->
         <button
             type="submit"
-            class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+            class="bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600"
         >
             Mettre à jour
         </button>
