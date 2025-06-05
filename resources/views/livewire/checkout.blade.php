@@ -3,7 +3,7 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <!-- Formulaire -->
-        <div class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg shadow">
+        <div class="bg-gray-100 dark:bg-zinc-900 p-6 rounded-lg shadow">
             <h2 class="text-xl font-semibold mb-4">Adresse de livraison</h2>
 
             <form wire:submit.prevent="placeOrder">
@@ -76,7 +76,7 @@
         </div>
 
         <!-- Récapitulatif -->
-        <div class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg shadow">
+        <div class="bg-gray-100 dark:bg-zinc-900 p-6 rounded-lg shadow">
             <h2 class="text-xl font-semibold mb-4">Votre commande</h2>
 
             <div class="divide-y">

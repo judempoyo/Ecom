@@ -1,6 +1,6 @@
 <x-filament::page>
 
-    <div class="bg-gray-100 dark:bg-gray-900 rounded-lg shadow p-6">
+    <div class="bg-gray-100 dark:bg-zinc-900 rounded-lg shadow p-6">
         <div class="flex justify-between items-center mb-8">
             <div>
                 <h1 class="text-2xl font-bold">Facture #{{ $record->id }}</h1>
@@ -48,7 +48,7 @@
             <h2 class="text-lg font-semibold mb-4">Articles</h2>
             <table class="w-full border-collapse">
                 <thead>
-                    <tr class="bg-gray-100 dark:bg-gray-800">
+                    <tr class="bg-gray-100 dark:bg-zinc-800">
                         <th class="p-3 text-left">Produit</th>
                         <th class="p-3 text-right">Prix unitaire</th>
                         <th class="p-3 text-right">Quantité</th>

@@ -16,7 +16,7 @@
                         <button wire:click="$set('category', '{{ $cat->id }}')"
                             class="w-full text-left px-3 py-2 rounded transition-colors flex justify-between  items-center {{ $category == $cat->id ? 'bg-teal-50 dark:bg-teal-500 dark:text-black  text-teal-600 hover:bg-teal-100 dark:hover:bg-teal-600' : 'text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-900 ' }}">
                             <span>{{ $cat->name }}</span>
-                            <span class="text-xs bg-gray-200 dark:bg-gray-700 text-teal-600 dark:text-white px-2 py-1 rounded-full">
+                            <span class="text-xs bg-gray-200 dark:bg-zinc-700 text-teal-600 dark:text-white px-2 py-1 rounded-full">
                                 {{ $cat->products_count }}
                             </span>
                         </button>
@@ -130,7 +130,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
         wire:loading.class="opacity-50">
        @foreach ($products as $product)
-           <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300">
+           <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-zinc-800 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300">
                         <a href="{{ route('products.show', $product->id) }}">
                             <img class="w-full h-48 object-cover rounded-t-lg"
                                 src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" />

@@ -1,5 +1,5 @@
 <div class="container mx-auto px-4 py-8 max-w-md">
-    <div class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg shadow">
+    <div class="bg-gray-100 dark:bg-zinc-900 p-6 rounded-lg shadow">
         @if(!$paymentSuccess)
             <h2 class="text-xl font-semibold mb-4">Paiement Mobile Money</h2>
             <p class="mb-6">Total à payer: <span class="font-bold">{{ number_format($order->total_amount, 2) }} $</span></p>

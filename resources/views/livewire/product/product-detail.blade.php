@@ -1,4 +1,4 @@
-<section class="py-8 bg-white md:py-16 dark:bg-gray-900 antialiased">
+<section class="py-8 bg-white md:py-16 dark:bg-zinc-900 antialiased">
     <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
         <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
             <!-- Section des images du produit -->
@@ -90,7 +90,7 @@
                 <!-- Boutons d'action -->
                 <div class="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
                     <button
-                        class="flex items-center justify-center py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                        class="flex items-center justify-center py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-zinc-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                     >
                         <svg class="w-5 h-5 -ms-2 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
@@ -127,7 +127,7 @@
                         Vous avez déjà donné votre avis sur ce produit.
                     </div>
                 @else
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mb-8">
+                    <div class="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-md mb-8">
                    
                             <h3 class="text-lg font-medium mb-4">Donnez votre avis</h3>
                             
@@ -145,7 +145,7 @@
                                 
                                 <!-- Commentaire -->
                                 <textarea wire:model="comment" 
-                                          class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                                          class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-zinc-700 dark:border-gray-600 dark:text-white"
                                           rows="4" 
                                           placeholder="Votre avis..."></textarea>
                                 @error('comment') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
@@ -173,10 +173,10 @@
                     <!-- Liste des avis -->
                     <div class="space-y-6">
                         @forelse($product->reviews as $review)
-                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+                            <div class="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-sm">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                        <div class="w-10 h-10 rounded-full bg-gray-300 dark:bg-gray-600 flex items-center justify-center">
+                                        <div class="w-10 h-10 rounded-full bg-gray-300 dark:bg-zinc-600 flex items-center justify-center">
                                             
                                             <livewire:user-avatar 
             :user="$review->user" 

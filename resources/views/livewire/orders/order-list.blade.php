@@ -1,4 +1,4 @@
-<div class="min-h-screen bg-gray-50 dark:bg-gray-800 py-8">
+<div class="min-h-screen bg-gray-50 dark:bg-zinc-800 py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- En-tête -->
         <div class="mb-8 border-b border-gray-200 dark:border-gray-700 pb-6">
@@ -21,7 +21,7 @@
         <!-- Liste des commandes -->
         <div class="space-y-6">
             @forelse ($orders as $order)
-                <div class="bg-gray-100 dark:bg-gray-900 overflow-hidden shadow-lg rounded-lg border border-gray-200 dark:border-gray-800  hover:shadow-xl transition-shadow duration-200">
+                <div class="bg-gray-100 dark:bg-zinc-900 overflow-hidden shadow-lg rounded-lg border border-gray-200 dark:border-gray-800  hover:shadow-xl transition-shadow duration-200">
                     <!-- En-tête de la commande -->
                     <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-800  flex justify-between items-start flex-wrap gap-4">
                         <div>
