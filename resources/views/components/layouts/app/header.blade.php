@@ -21,12 +21,12 @@
                 <flux:navbar.item icon="layout-grid" :href="route('home')" :current="request()->routeIs('home')" wire:navigate>
                     {{ __('Accueil') }}
                 </flux:navbar.item>
-                <flux:navbar.item icon="tag" :href="route('products.index')" :current="request()->routeIs('promotions')" wire:navigate>
+                {{--  <flux:navbar.item icon="tag" :href="route('products.index')" :current="request()->routeIs('promotions')" wire:navigate>
                     {{ __('Promotions') }}
                 </flux:navbar.item>
                 <flux:navbar.item icon="shopping-bag" :href="route('products.index')" :current="request()->routeIs('products.index')" wire:navigate>
                     {{ __('Produits') }}
-                </flux:navbar.item>
+                </flux:navbar.item>  --}}
                   <flux:navbar.item icon="shopping-cart" :href="route('orders.list')" :current="request()->routeIs('orders.list')" wire:navigate>
                     {{ __('Mes commandes') }}
                 </flux:navbar.item>
