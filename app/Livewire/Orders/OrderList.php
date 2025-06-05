@@ -10,6 +10,10 @@ class OrderList extends Component
 {
     public function cancelOrder($orderId)
     {
+        if (in_array($this->status, ['cancelled', 'completed'])) {
+        return;
+    }
+    
         $order = Order::where('user_id', Auth::id())->findOrFail($orderId);
 
         $order->cancelOrder();
