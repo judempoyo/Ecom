@@ -12,8 +12,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('image')->nullable()->after('password'); // Image de l'utilisateur
-            $table->boolean('is_active')->default(true)->after('image'); // Statut actif/inactif
+            $table->string('profile_photo')->nullable()->after('password'); 
+            $table->boolean('is_active')->default(true)->after('profile_photo'); 
         });
     }
     

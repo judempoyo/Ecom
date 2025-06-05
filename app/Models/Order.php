@@ -27,4 +27,17 @@ class Order extends Model
     {
         return $this->hasMany(Payment::class);
     }
+
+    public function cancelOrder()
+{
+    if ($this->status === 'cancelled') return;
+
+    foreach ($this->items as $item) {
+        $product = $item->product;
+        $product->addStock($item->quantity, "Annulation commande #{$this->id}");
+    }
+
+    $this->status = 'cancelled';
+    $this->save();
+}
 }
