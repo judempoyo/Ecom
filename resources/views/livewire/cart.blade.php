@@ -24,11 +24,11 @@
                     @foreach($cart as $id => $item)
                         <div class="py-4 flex items-center">
                             <div class="flex-shrink-0 h-16 w-16 rounded-md overflow-hidden">
-                                <img src="{{ asset('storage/'.$item['image']) }}" 
-                                     alt="{{ $item['name'] }}" 
+                                <img src="{{ asset('storage/'.$item['image']) }}"
+                                     alt="{{ $item['name'] }}"
                                      class="h-full w-full object-cover">
                             </div>
-                            
+
                             <div class="ml-4 flex-1">
                                 <div class="flex justify-between">
                                     <h3 class="text-sm font-medium ">{{ $item['name'] }}</h3>
@@ -36,17 +36,17 @@
                                         {{ number_format($item['price'] * $item['quantity'], 2) }} €
                                     </p>
                                 </div>
-                                
+
                                 <div class="mt-2 flex items-center justify-between">
                                     <div class="flex items-center border rounded">
-                                        <button wire:click="updateQuantity('{{ $id }}', {{ $item['quantity'] - 1 }})" 
+                                        <button wire:click="updateQuantity('{{ $id }}', {{ $item['quantity'] - 1 }})"
                                                 class="px-2 py-1 hover:bg-gray-100">-</button>
                                         <span class="px-3 text-sm">{{ $item['quantity'] }}</span>
-                                        <button wire:click="updateQuantity('{{ $id }}', {{ $item['quantity'] + 1 }})" 
+                                        <button wire:click="updateQuantity('{{ $id }}', {{ $item['quantity'] + 1 }})"
                                                 class="px-2 py-1 hover:bg-gray-100">+</button>
                                     </div>
-                                    
-                                    <button wire:click="removeFromCart('{{ $id }}')" 
+
+                                    <button wire:click="removeFromCart('{{ $id }}')"
                                             class="ml-4 text-red-500 hover:text-red-700">
                                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -57,27 +57,27 @@
                         </div>
                     @endforeach
                 </div>
-                
+
                 <div class="border-t border-gray-200 pt-4">
                     <div class="flex justify-between text-base font-medium ">
                         <p>Total</p>
                         <p>{{ number_format(array_sum(array_map(function($item) { return $item['price'] * $item['quantity']; }, $cart)), 2) }} €</p>
                     </div>
-                    
+
                     <div class="mt-6">
                         @if(auth()->check())
-                        <a href="{{ route('checkout') }}" 
-                        class="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-teal-600 hover:bg-teal-700">
+                        <a href="{{ route('checkout') }}"
+                        class="flex justify-center items-center px-8 py-6 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-teal-600 hover:bg-teal-700">
                          Passer la commande
                      </a>
         @else
-            <div class="bg-teal-50 text-teal-700 p-3 rounded mb-4">
+            <div class="bg-teal-50 dark:bg-zinc-900 p-3 rounded mb-4">
                 <p>Connectez-vous pour passer commande</p>
-                <a href="{{ route('login') }}" class="font-medium underline">Se connecter</a>
+                <a href="{{ route('login') }}" class="font-medium underline text-teal-600 hover:italic hover:text-teal-750">Se connecter</a>
             </div>
         @endif
-                        {{--    
-                        <a href="{{ route('products.index') }}" 
+                        {{--
+                        <a href="{{ route('products.index') }}"
                            class="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-teal-600 hover:bg-teal-700">
                            Passer la commande
                         </a>
